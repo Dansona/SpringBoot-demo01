@@ -1,0 +1,45 @@
+#多个之间用-号隔开
+#yml语法规则
+# 大小写敏感
+# 属性层级关系使用多行描述，每行结尾使用冒号结束‘
+# 使用缩进表示层级关系，同层级左侧对齐，只允许使用空格（不允许tab键）
+# 属性值前面添加空格（属性名与属性值之间使用冒号+空格隔开）
+#字面值表示方式
+#boolean: true TRUE、True、true都可以
+#float: 2.31
+#int: 123
+#null: ~  ~表示null
+#string: hello 不带双引号
+#string2: "aa" 带双引号
+#date: 2022-08-12 日期必须使用yyyy-MM-dd格式
+#datetime: 2022-08-12T15:01:12+8:00  时间和日期之间使用T连接，最后使用+代表时区
+#数组表示方式，在属性名书写位置的下方使用-号作为数据开始符号，每行书写一个数据，-号与数据之间空格隔开
+name: 李四
+subject:
+  - css
+  - html
+  - java
+subject2: [css,html,java]
+#对象数组
+users:
+ - name: zhangsan
+   gender: 1
+ - name: lisi
+   gender: 2
+user2: [{ name:zhangsan,gender:1 },{ name:lisi,gender:2 }]
+#使用${属性名}引用数据
+baseDir: D:\imp
+
+tempDir: ${baseDir}\temp
+#使用双引号包裹属性值时，转义字符会生效，即属性值中需要使用特殊字符时，需要用双引号包裹起来
+#tempDir: "${baseDir}\temp \t1 \t2"
+userinfo:
+  name: 张三
+  gender: 1
+  subject: [css,html,java]
+
+datasource:
+  driver-class-name: com.mysql.cj.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/ssm_db?serverTimezone=UTC
+  username: root
+  password: root
